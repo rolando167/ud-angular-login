@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { UsuarioModel } from '../models/usuario.model';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -11,10 +12,14 @@ export class AuthService {
 
   private apiKey = 'AIzPOLDSI-5457DS72vs78tyopZZ';
 
+  userToken: string;
+
   // 127.0.0.1:8000/api/usuarios/register
   // 127.0.0.1:8000/api/usuarios/login
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.leerToken();
+   }
 
   logout(){
 
@@ -29,6 +34,11 @@ export class AuthService {
     return this.http.post(
       `${ this.url }/login?key=[${this.apiKey}]`,
       authData
+    ).pipe(
+      map(resp => {
+        this.guardarToken( resp['access_token']);
+        return resp;
+      })
     );
 
   }
@@ -44,8 +54,28 @@ export class AuthService {
     return this.http.post(
       `${ this.url }/register?key=[${this.apiKey}]`,
       authData
+    ).pipe(
+      map(resp => {
+        this.guardarToken( resp['access_token']);
+        return resp;
+      })
     );
 
+  }
+
+  private guardarToken( idToken: string){
+    this.userToken = idToken;
+    localStorage.setItem('token', idToken);
+  }
+
+  leerToken(){
+    if(localStorage.getItem('token')){
+      this.userToken = localStorage.getItem('token');
+    }else{
+      this.userToken = '';
+    }
+
+    return this.userToken;
   }
 
 }
