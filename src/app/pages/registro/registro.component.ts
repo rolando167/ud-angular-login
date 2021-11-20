@@ -30,10 +30,12 @@ export class RegistroComponent implements OnInit {
       .subscribe( resp=>{
         console.log(resp);
 
-    });
-    console.log(this.usuario);
-    console.log(form);
+    }, (err) =>{
+      console.log(err.error.error);
 
+    });
+    // console.log(this.usuario);
+    // console.log(form);
   }
 
 }
