@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UsuarioModel } from 'src/app/models/usuario.model';
 import { NgForm } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-registro',
@@ -26,13 +27,29 @@ export class RegistroComponent implements OnInit {
       return;
     }
 
+
+    Swal.fire({
+      title: 'Por favor Espere !',
+      html: 'Cargando ...',// add html attribute if you want or remove
+      allowOutsideClick: false,
+      onBeforeOpen: () => {
+          Swal.showLoading()
+      },
+    });
+
     this.auth.nuevoUsuario(this.usuario)
       .subscribe( resp=>{
         console.log(resp);
+        Swal.close();
 
     }, (err) =>{
       console.log(err.error.error);
-
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Ocurrió un error!',// add html attribute if you want or remove
+        allowOutsideClick: true,
+      });
     });
     // console.log(this.usuario);
     // console.log(form);
