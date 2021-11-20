@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { AuthService } from 'src/app/services/auth.service';
 import { UsuarioModel } from '../../models/usuario.model';
 
 
@@ -14,7 +15,8 @@ export class LoginComponent implements OnInit {
 
   usuario : UsuarioModel = new UsuarioModel();
 
-  constructor(private auth: AuthService) { }
+  constructor(private auth: AuthService,
+              private router: Router) { }
 
   ngOnInit() {
   }
@@ -41,6 +43,8 @@ export class LoginComponent implements OnInit {
 
         console.log(resp);
         Swal.close();
+        this.router.navigateByUrl('/home');
+
       }, (err) =>{
         console.log(err);
         Swal.fire({
