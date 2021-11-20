@@ -1,0 +1,45 @@
+----------
+netlify Cli
+
+--------------------
+La primera vez
+
+> npm i netlify-cli
+--------------------
+
+>netlify status
+
+>netlify --version
+--------------------
+
+Si es proyecto angular:
+
+>ng build --prod
+
+--------------------
+
+>netlify deploy --prod
+
+Nota: luego se debera autorizar (si es necesario) te manda a netlify web, luego en cmd se escoge
+la opcion de "crear y configurar nuevo sitio", se encoge un equipo (defecto), 
+se la un nombre al sitio (si no existe si no por default), luego se indica la carpeta y
+se desde ANGULAR en la carpeta dist - abra una carpeta con nombre "(defecto)": ejemplo
+publish directory> dis/leptus
+--------------------
+https://platzi.com/tutoriales/1843-travis/5302-deployments-unicos-por-git-branch-con-netlify-y-travis/
+
+subir cambios
+
+>netlify deploy --prod --dir=dist/leptus --message="Deploy desde home"
+--------------------
+
+--------------------
+
+
+
+
+
+
+
+
+
