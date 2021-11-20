@@ -11,6 +11,12 @@ crear servcio
 https://sweetalert2.github.io/#download
 
 > npm install sweetalert2
+
+---------------
+
+https://stackoverflow.com/questions/62136974/sweetalert-is-not-running-i-got-an-error-on-its-ts-file
+Error de version
+> npm install sweetalert2@v9.11.0
 ---------------
 
 
