@@ -18,7 +18,12 @@ https://stackoverflow.com/questions/62136974/sweetalert-is-not-running-i-got-an-
 Error de version
 > npm install sweetalert2@v9.11.0
 ---------------
+crear Guard: rutas privadas
 
+> ng g guard guards/auth
+
+seleccionar opcion: (*) CanActivate
+(con barra espaciadora)
 
 ---------------
 
