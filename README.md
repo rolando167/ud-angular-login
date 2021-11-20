@@ -1,6 +1,6 @@
 # LoginApp 🅰
 
-20/11/2021
+📅 20/11/2021
 
 Cascaron de un login que usaremos en la sección 10 de mi curso de Angular de cero a experto.
 
