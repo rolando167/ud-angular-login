@@ -8,6 +8,8 @@ crear servcio
 >ng g s services/auth
 ---------------
 
+**Versiones:::
+
 https://www.npmjs.com/package/sweetalert2
 
 https://sweetalert2.github.io/#download
