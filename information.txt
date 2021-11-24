@@ -8,6 +8,8 @@ crear servcio
 >ng g s services/auth
 ---------------
 
+https://www.npmjs.com/package/sweetalert2
+
 https://sweetalert2.github.io/#download
 
 > npm install sweetalert2
